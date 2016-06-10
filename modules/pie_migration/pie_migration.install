@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_install().
+ *
+ * here we will create the necessary vocabularies for Plum Island
+ * we need to examine the DEIMS D6 database, etc.
+ * the following are examples, to be re-written
+*/
+function pie_migration_install() {
+
+  // Create the Pie Source Pubs LTER Vocabulary .
+  $description = st('Use keywords to group publication according to their origination');
+  $help = st('Enter a comma-separated list of words to describe your content.');
+  $vocabulary = (object) array(
+    'name' => st('Plum Island Ecosystem Publication Source Vocabulary'),
+    'description' => $description,
+    'machine_name' => 'pubs_source_vocab',
+    'help' => $help,
+
+  );
+  taxonomy_vocabulary_save($vocabulary);
+
+}
