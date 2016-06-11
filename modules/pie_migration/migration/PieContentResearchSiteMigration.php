@@ -17,7 +17,7 @@ class PieContentResearchSiteMigration extends DeimsContentResearchSiteMigration 
        ->sourceMigration('DeimsFile');
 
     $this->addFieldMapping('field_core_areas','3')
-      ->sourceMigration('PieTaxonomyCoreAreasVocabulary');
+      ->sourceMigration('DeimsTaxonomyCoreAreas');
     $this->addFieldMapping('field_core_areas:source_type')
       ->defaultValue('tid');
 
@@ -42,7 +42,7 @@ class PieContentResearchSiteMigration extends DeimsContentResearchSiteMigration 
        'field_images:alt',
        'field_images:title',
     ));
-      
+
   }
   public function prepareRow($row) {
     parent::prepareRow($row);
