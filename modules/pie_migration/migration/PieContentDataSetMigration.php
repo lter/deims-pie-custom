@@ -43,7 +43,7 @@ class PieContentDataSetMigration extends DeimsContentDataSetMigration {
       ->defaultValue('tid');
 
     $this->addFieldMapping('field_station_keywords_termref', '6')
-      ->sourceMigration('PieTaxonomyProjectVocabulary');
+      ->sourceMigration('PieTaxonomyPIEResearchAreasVocabulary');
     $this->addFieldMapping('field_station_keywords_termref:source_type')
       ->defaultValue('tid');
 

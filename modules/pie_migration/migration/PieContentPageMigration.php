@@ -12,6 +12,12 @@ class PieContentPageMigration extends DeimsContentPageMigration {
 
     parent::__construct($arguments);
 
+    $this->removeFieldMapping('body');
+
+    $this->addFieldMapping('body', 'body')
+      ->description('Tweak in prepareRow');
+
+
     $this->addUnmigratedSources(array(
      'upload',
      'upload:description',
@@ -20,6 +26,7 @@ class PieContentPageMigration extends DeimsContentPageMigration {
      'revision_uid',
      'revision',
      'log',
+     '3',
     ));
 
     $this->addUnmigratedDestinations(array(
@@ -45,21 +52,22 @@ class PieContentPageMigration extends DeimsContentPageMigration {
     'field_images:urlencode',
     'field_images:alt',
     'field_images:title',
-    'field_section:create_term',
-    'field_section:ignore_case',
-    'field_core_areas',
-    'field_core_areas:source_type',
     ));
 
   }
  
   public function prepareRow($row) {
+
     parent::prepareRow($row);
+
+    // Note, change to /sites/default/files/ when production
+    $row->body = str_replace("/sites/pie-lter.ecosystems.mbl.edu/files/","/pie/sites/default/files/", $row->body);
+
   }
   public function prepare($node, $row) {
     // Remove any empty or illegal delta field values.
     EntityHelper::removeInvalidFieldDeltas('node', $node);
     EntityHelper::removeEmptyFieldValues('node', $node);
   }
-   
+
 }

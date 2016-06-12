@@ -2,6 +2,7 @@ name = Plum Island Ecosystem LTER migrations
 description = Migrations specific to the PIE LTER
 core = 7.x
 ;dependencies[] = deims
+files[] = migration/PieFileMigration.php
 files[] = migration/PieContentDataSetMigration.php
 files[] = migration/PieContentOrganizationMigration.php
 files[] = migration/PieContentPageMigration.php
