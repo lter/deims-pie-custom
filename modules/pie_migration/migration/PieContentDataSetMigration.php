@@ -11,6 +11,10 @@ class PieContentDataSetMigration extends DeimsContentDataSetMigration {
 
    parent::__construct($arguments);
 
+   $this->removeFieldMapping('field_person_contact'); 
+   $this->removeFieldMapping('field_person_metadata_provider');
+   $this->removeFieldMapping('field_person_publisher');
+
     $this->addUnmigratedSources(array(
       'revision',
       'revision_uid',
@@ -46,6 +50,14 @@ class PieContentDataSetMigration extends DeimsContentDataSetMigration {
       ->sourceMigration('PieTaxonomyPIEResearchAreasVocabulary');
     $this->addFieldMapping('field_station_keywords_termref:source_type')
       ->defaultValue('tid');
+
+
+    $this->addFieldMapping('field_person_contact')
+        ->defaultValue(3413);
+    $this->addFieldMapping('field_person_metadata_provider')
+        ->defaultValue(3413);
+    $this->addFieldMapping('field_person_publisher')
+        ->defaultValue(3413);
 
 
    }
