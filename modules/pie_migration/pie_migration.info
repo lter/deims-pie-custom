@@ -10,3 +10,4 @@ files[] = migration/PieContentPersonMigration.php
 files[] = migration/PieContentResearchSiteMigration.php
 files[] = migration/PieContentDataFileMigration.php
 files[] = migration/PieContentDataSetMigration.php
+files[] = migration/PieContentBannerMigration.php

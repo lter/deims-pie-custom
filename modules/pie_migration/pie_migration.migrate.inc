@@ -11,6 +11,9 @@ function pie_migration_migrate_api() {
   $info = array(
     'api' => 2,
     'migrations' => array(
+      'PieContentBanner' => array(
+        'class_name' => 'PieContentBannerMigration',
+      ),
       'PieTaxonomyPubsSourceVocabulary' => array(
         'class_name' => 'DrupalTerm6Migration',
         'description' => "Taxonomy migration for the 'Publication Source Vocabulary' vocabulary.",
@@ -47,12 +50,12 @@ function pie_migration_migrate_api() {
  */
 function pie_migration_deims_migration_overrides() {
   return array(
+    'DeimsFile' => array('class_name' => 'PieFileMigration'),
     'DeimsContentDataSet' => array('class_name' => 'PieContentDataSetMigration'),
     'DeimsContentOrganization' => array('class_name' => 'PieContentOrganizationMigration'),
     'DeimsContentPerson' => array('class_name' => 'PieContentPersonMigration'),
     'DeimsContentPage' => array('class_name' => 'PieContentPageMigration'),
     'DeimsContentResearchSite' => array('class_name' => 'PieContentResearchSiteMigration'),
     'DeimsContentDataFile' => array('class_name' => 'PieContentDataFileMigration'),
-    'DeimsContentDataSet' => array('class_name' => 'PieContentDataSetMigration'),
   );
 }
