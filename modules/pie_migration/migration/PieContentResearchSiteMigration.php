@@ -12,13 +12,22 @@ class PieContentResearchSiteMigration extends DeimsContentResearchSiteMigration 
      parent::__construct($arguments);
 
 //   the photos use a different field
-     $this->removeFieldMapping('field_images');
-     $this->addFieldMapping('field_images','field_research_site_image')
-       ->sourceMigration('DeimsFile');
+    $this->removeFieldMapping('field_images');
+    $this->addFieldMapping('field_images','field_research_site_image')
+      ->sourceMigration('DeimsFile');
+
+//  these were declared unmigratedsources in the parent migration, but do not exist.
+//    $this->removeFieldMapping('field_research_site_legacynid');
+//    $this->removeFieldMapping('field_research_site_core');
 
     $this->addFieldMapping('field_core_areas','3')
       ->sourceMigration('DeimsTaxonomyCoreAreas');
     $this->addFieldMapping('field_core_areas:source_type')
+      ->defaultValue('tid');
+
+    $this->addFieldMapping('field_station_keywords_termref','6')
+      ->sourceMigration('PieTaxonomyPIEResearchAreasVocabulary');
+    $this->addFieldMapping('field_station_keywords_termref:source_type')
       ->defaultValue('tid');
 
     $this->addUnmigratedSources(array(
@@ -39,6 +48,8 @@ class PieContentResearchSiteMigration extends DeimsContentResearchSiteMigration 
     $this->addUnmigratedDestinations(array(
        'field_core_areas:create_term',
        'field_core_areas:ignore_case',
+       'field_station_keywords_termref:create_term',
+       'field_station_keywords_termref:ignore_case',
        'field_images:alt',
        'field_images:title',
     ));
