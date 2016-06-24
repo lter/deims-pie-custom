@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Pie Banner feature.
+ */
+
+include_once 'pie_banner.features.inc';
