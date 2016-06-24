@@ -14,6 +14,9 @@ class PieContentPersonMigration extends DeimsContentPersonMigration {
     $this->removeFieldMapping(NULL, 'field_person_fullname');
     $this->removeFieldMapping(NULL, 'field_person_list');
 
+    $this->addFieldMapping('field_list_in_directory','field_person_status')
+     ->description('Tweaked in prepareRow()');
+
     $this->addUnmigratedSources(array(
       'field_person_lastfirstname',
       'revision',
@@ -27,7 +30,6 @@ class PieContentPersonMigration extends DeimsContentPersonMigration {
 
    $this->addUnmigratedDestinations(array(
      'field_associated_biblio_author',
-     'field_list_in_directory',
      'field_url',
      'field_url:title',
      'field_url:attributes',
@@ -44,6 +46,14 @@ class PieContentPersonMigration extends DeimsContentPersonMigration {
         $row->field_person_email = NULL;
     }
 
+    switch ($row->field_person_status) {
+      case 'Active':
+        $row->field_person_status = 1;
+        break;
+      case 'Inactive':
+        $row->field_person_status = 0;
+        break;
+    }
     // Fix country values used on pie.
     switch ($row->field_person_country) {
       case 'Dublin':
