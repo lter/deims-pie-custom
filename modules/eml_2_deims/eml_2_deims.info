@@ -1,0 +1,15 @@
+name = EML to DEIMS Migration
+description = "Provides a base migration from Ecological Metadata Language v. 2.1.0 metadata to DEIMS. Earlier versions of EML would require you to upgrade. In those cases, you may use a stylesheet to go from 2.0.* to 2.1.0, etc"
+package = DEIMS Enhancements
+core = 7.x
+dependencies[] = migrate
+dependencies[] = migrate_ui
+dependencies[] = migrate_extras
+dependencies[] = taxonomy
+
+; Migration classes
+files[] = migration/EmlFileMigration.php
+files[] = migration/EmlDatasetMigration.php
+files[] = migration/EmlDataFileMigration.php
+files[] = migration/EmlKeywordMigration.php
+
