@@ -75,8 +75,8 @@ class EmlFileMigration extends XMLMigration {
   public function prepareRow($row) {
 
     $filen = (string) $row->xml->physical->objectName ;
-    $row->file_uri = $base_path . 'sites/default/imports/idrisi/' . $filen . '.csv';
-    $row->destination_file = $filen . '.csv';
+    $row->file_uri = $base_path . 'sites/default/files/gis/' . $filen ;
+    $row->destination_file = $filen ;
 
   }
 }
