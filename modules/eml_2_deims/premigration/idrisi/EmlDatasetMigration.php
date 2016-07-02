@@ -18,7 +18,6 @@ class EmlDatasetMigration extends XMLMigration {
         'alternateIdentifier' => t('The dataset abbreviation, a short name'),
         'title' => t('The dataset title'),
         'abstract' => t('The dataset abstract'),
-        'purpose' => t('The dataset purpose'),
         'methods' => t('The dataset methods'),
         'additionalInfo' =>('The dataset additional information'),
         'instrumentation' =>('The dataset instrumentation'),
@@ -80,7 +79,7 @@ class EmlDatasetMigration extends XMLMigration {
        ->xpath('dataset/alternateIdentifier');
 
     $this->addFieldMapping('field_abstract','abstract')
-      ->xpath('dataset/abstract/section/para');
+      ->xpath('dataset/abstract/para');
 
     //@todo  here again, it is a complex element
     // This content type does not have a body field.
@@ -94,13 +93,13 @@ class EmlDatasetMigration extends XMLMigration {
     $this->addFieldMapping('field_section:ignore_case')->defaultValue(TRUE);
     $this->addFieldMapping('field_section')->defaultValue('Watershed');
 
-    // this is not part of EML -- Added to make the migration effective
-    $this->addFieldMapping('field_core_areas', 'coreArea')
-       ->xpath('dataset/coreArea');
+  //  this is not part of EML -- Added to make the migration effective
+  //    $this->addFieldMapping('field_core_areas', 'coreArea')
+  //     ->xpath('dataset/coreArea');
 
-    $this->addFieldMapping('field_core_areas:ignore_case')->defaultValue(TRUE);
+  //  $this->addFieldMapping('field_core_areas:ignore_case')->defaultValue(TRUE);
 
-    //$this->addFieldMapping('field_keywords', '9');
+  //  $this->addFieldMapping('field_keywords', '9');
 
     $this->addFieldMapping('field_station_keywords_ref:source_type')->defaultValue('tid');
 
@@ -111,10 +110,7 @@ class EmlDatasetMigration extends XMLMigration {
         ->defaultValue(TRUE);
 
     $this->addFieldMapping('field_section:ignore_case')->defaultValue(TRUE);
-    $this->addFieldMapping('field_section')->defaultValue('Belowground');
-
-    $this->addFieldMapping('field_purpose', 'purpose')
-        ->xpath('dataset/purpose/section/para/literalLayout');
+    $this->addFieldMapping('field_section')->defaultValue('Idrisi');
 
       //@todo another text type for parsing
     $this->addFieldMapping('field_additional_information', 'additionalInfo')
@@ -129,7 +125,6 @@ class EmlDatasetMigration extends XMLMigration {
 
     $this->addFieldMapping('field_methods', 'methods')
         ->description('in prepareRow');
-//        ->xpath('dataset/methods/methodStep/description');
 
       //@todo another text type for parsing
     $this->addFieldMapping('field_instrumentation', 'instrumentation')
@@ -217,18 +212,28 @@ class EmlDatasetMigration extends XMLMigration {
     }
  
     //pubdate
-    if (preg_match('/(\d+)/',$row->xml->dataset->pubDate, $found)){
-     $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-01-01 00:00:00"));
-     $row->xml->dataset->pubDate = $mydate;
+    if ( preg_match('/(\d+)-(\d+)-(\d+)/',$row->xml->dataset->pubDate, $found)){
+      $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-$found[2]-$found[3] 00:00:00"));
+      $row->xml->dataset->pubDate = $mydate;
+    } else if (preg_match('/(\d+)/',$row->xml->dataset->pubDate, $found)){
+      $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-01-01 00:00:00"));
+      $row->xml->dataset->pubDate = $mydate;
     }
 
     // begin date
     if ( preg_match('/(\d+)-(\d+)-(\d+)/',$row->xml->dataset->coverage->temporalCoverage->rangeOfDates->beginDate->calendarDate, $found)){
-      $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-$found[2]-$found[3] 00:00:00"));
-      $row->xml->dataset->coverage->temporalCoverage->rangeOfDates->beginDate->calendarDate = $mydate;
+      $mybdate = date('Y-m-d H:i:s',strtotime("$found[1]-$found[2]-$found[3] 00:00:00"));
+      $row->beginDate = $mybdate;
     } else if ( preg_match('/(\d+)/',$row->xml->dataset->coverage->temporalCoverage->rangeOfDates->beginDate->calendarDate, $found)){
-      $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-01-01 00:00:00"));
-      $row->xml->dataset->coverage->temporalCoverage->rangeOfDates->beginDate->calendarDate = $mydate;
+      $mybdate = date('Y-m-d H:i:s',strtotime("$found[1]-01-01 00:00:00"));
+      $row->beginDate = $mybdate;
+    } else if ( preg_match('/(\d+)-(\d+)-(\d+)/',$row->xml->dataset->coverage->temporalCoverage->singleDateTime->calendarDate, $found)){
+      $mybdate = date('Y-m-d H:i:s',strtotime("$found[1]-$found[2]-$found[3] 00:00:00"));
+      $row->beginDate = $mybdate;
+    } else if ( preg_match('/(\d+)/',$row->xml->dataset->coverage->temporalCoverage->singleDateTime->calendarDate, $found)){
+      $mybdate = date('Y-m-d H:i:s',strtotime("$found[1]-01-01 00:00:00"));
+//      $row->xml->dataset->coverage->temporalCoverage->bdate = $mybdate;
+      $row->beginDate = $mybdate;
     }
 
     // end date
@@ -238,6 +243,9 @@ class EmlDatasetMigration extends XMLMigration {
     } else if ( preg_match('/(\d+)/',$row->xml->dataset->coverage->temporalCoverage->rangeOfDates->endDate->calendarDate, $found)){
       $mydate = date('Y-m-d H:i:s',strtotime("$found[1]-12-31 00:00:00"));
       $row->xml->dataset->coverage->temporalCoverage->rangeOfDates->endDate->calendarDate = $mydate;
+    } else {
+//      $row->xml->dataset->coverage->temporalCoverage->rangeOfDates->endDate->calendarDate = $mybdate;
+       $row->endDate = $mybdate;
     }
 
     //  creator last name
@@ -252,8 +260,8 @@ class EmlDatasetMigration extends XMLMigration {
 
     // EML Methods:
     $methods_values = '';
-    foreach($row->xml->dataset->methods->methodStep->description->para->ulink as $parael){
-       $methods_values .= 'For additional methods and metadata, see: '. (string)$parael;  
+    foreach($row->xml->dataset->methods->methodStep->description->para as $parael){
+       $methods_values .= (string)$parael. '<p/>';  
     }
     $row->methods = $methods_values;
   }
