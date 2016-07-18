@@ -31,11 +31,11 @@ class EmlDatasetMigration extends XMLMigration {
         'pubdate' => t('The dataset publication date'),
         'beginDate' => t('The dataset start date'),
         'endDate' => t ('The last date of the dataset record'),
-       'language' => t('The dataset language'),
+        'language' => t('The dataset language'),
    //    'associatedparties' => t('The dataset associated roles'),
-        'keywordRef' => t('The keywords tagging this dataset'),
-        'customKeywordRef' => t('The pi-assigned keywords tagging this dataset'),
-        'coreArea' => t('A core area term. Extends EML'),
+        'customKeywordRef' => t('The pie XML assigned keywords tagging this dataset to GIS Keyw'),
+        'sectionKeywordRef' => t('The GIS specific subsection keywords tagging this dataset to Section'),
+        'gisKeywordRef' => t('One of four GIS section keywords tagging this dataset to PIE Res. Areas voc - aka stat key'),
         'maintenance' => t('The dataset maintenance'),
         'dataRasterRef' => t('The data sources associated with this dataset'),
         'datasetid' => t('The dataset id'),
@@ -80,6 +80,7 @@ class EmlDatasetMigration extends XMLMigration {
 
     $this->addFieldMapping('field_abstract','abstract')
       ->xpath('dataset/abstract/para');
+    $this->addFieldMapping('field_abstract:format')->defaultValue('full_html');
 
     //@todo  here again, it is a complex element
     // This content type does not have a body field.
@@ -90,31 +91,29 @@ class EmlDatasetMigration extends XMLMigration {
     $this->addFieldMapping('field_eml_revision_id','revisionid')
        ->description('Extract revision in prepareRow');
 
-    $this->addFieldMapping('field_section:ignore_case')->defaultValue(TRUE);
-    $this->addFieldMapping('field_section')->defaultValue('Watershed');
-
-  //  this is not part of EML -- Added to make the migration effective
-  //    $this->addFieldMapping('field_core_areas', 'coreArea')
-  //     ->xpath('dataset/coreArea');
-
-  //  $this->addFieldMapping('field_core_areas:ignore_case')->defaultValue(TRUE);
-
-  //  $this->addFieldMapping('field_keywords', '9');
-
-    $this->addFieldMapping('field_station_keywords_ref:source_type')->defaultValue('tid');
-
-    $this->addFieldMapping('field_station_keywords_ref', 'customKeywordRef')
-       ->description('Tweak in prepareRow');
-
-    $this->addFieldMapping('field_station_keywords_ref:ignore_case')
-        ->defaultValue(TRUE);
+//  'sectionKeywordRef' => t('The GIS specific subsection keywords tagging this dataset to Section'),
 
     $this->addFieldMapping('field_section:ignore_case')->defaultValue(TRUE);
-    $this->addFieldMapping('field_section')->defaultValue('Idrisi');
+    $this->addFieldMapping('field_section','sectionKeywordRef')
+      ->description('In preparerow');
+
+//  'gisKeywordRef' => t('One of four GIS section keywords tagging this dataset to PIE Res. Areas voc - aka stat key'),
+
+    $this->addFieldMapping('field_station_keywords_ter', 'gisKeywordRef')
+      ->description('Tweak in prepareRow');
+    $this->addFieldMapping('field_station_keywords_ter:ignore_case')->defaultValue(TRUE);
+
+//  'customKeywordRef' => t('The pie XML assigned keywords tagging this dataset to GIS Keyw'),
+
+    $this->addFieldMapping('field_gis_section_termref:source_type')->defaultValue('tid');
+    $this->addFieldMapping('field_gis_section_termref:ignore_case')->defaultValue(TRUE);
+    $this->addFieldMapping('field_gis_section_termref','customKeywordRef')
+      ->description('explode XML in preparerow');
 
       //@todo another text type for parsing
     $this->addFieldMapping('field_additional_information', 'additionalInfo')
         ->xpath('dataset/additionalInfo/para/literalLayout');
+    $this->addFieldMapping('field_additional_information:format')->defaultValue('full_html');
 
     $this->addFieldMapping('field_maintenance', 'maintenance')
         ->xpath('dataset/maintenance/description/section/para/literalLayout');
@@ -125,6 +124,8 @@ class EmlDatasetMigration extends XMLMigration {
 
     $this->addFieldMapping('field_methods', 'methods')
         ->description('in prepareRow');
+
+    $this->addFieldMapping('field_methods:format')->defaultValue('full_html');
 
       //@todo another text type for parsing
     $this->addFieldMapping('field_instrumentation', 'instrumentation')
@@ -151,13 +152,14 @@ class EmlDatasetMigration extends XMLMigration {
        ->description('lookup creator in prepareRow');
 
     $this->addFieldMapping('field_person_contact', 'contactRef')
-        ->defaultValue(2226);
+       ->xpath('dataset/contact/individualName/surName')
+       ->description('lookup contact in prepareRow');
 
     $this->addFieldMapping('field_person_metadata_provider', 'metadataProviderRef')
-        ->defaultValue(2226);
+        ->defaultValue(3413);   // set to PIE Org
 
     $this->addFieldMapping('field_person_publisher', 'publisherRef')
-        ->defaultValue(2226);
+        ->defaultValue(3413);
 
     $this->addFieldMapping('uid')->defaultValue(1);
 
@@ -166,6 +168,10 @@ class EmlDatasetMigration extends XMLMigration {
 //    ));
 
     $this->addUnmigratedDestinations(array(
+      'field_core_areas',
+      'field_core_areas:source_type',
+      'field_core_areas:create_term',
+      'field_core_areas:ignore_case',
       'field_data_set_id:language',
       'field_abstract:language',
       'field_short_name:language',
@@ -182,6 +188,31 @@ class EmlDatasetMigration extends XMLMigration {
       'field_eml_hash:language',
       'field_eml_link',
       'field_eml_valid',
+      'field_date_range:timezone', //	Timezone
+      'field_date_range:rrule',
+      'field_instrumentation:format',
+      'field_keywords',
+      'field_keywords:source_type',
+      'field_keywords:create_term',
+      'field_keywords:ignore_case',
+      'field_maintenance:format',
+      'field_publication_date:timezone',
+      'field_publication_date:rrule',
+      'field_publication_date:to',
+      'field_purpose',
+      'field_purpose:format',
+      'field_quality_assurance:format',
+      'field_related_links',
+      'field_related_links:title',
+      'field_related_links:attributes',
+      'field_taxa_ref',
+      'field_section:source_type',
+      'field_section:create_term',
+      'field_gis_section_termref:create_term',
+      'field_station_keywords_ter:create_term',
+      'path',
+      'pathauto',
+      'comment',
       'created',
       'changed',
       'status',    //   Published
@@ -205,6 +236,46 @@ class EmlDatasetMigration extends XMLMigration {
     list($scope, $identifier, $revision)= explode('.', $val, 3);
     $row->datasetid = $identifier;
     $row->revisionid= $revision;
+
+    // pie-assigned keywords in EML <keywordSet> construct
+    $row->customKeywordRef = $this->getKeywords($row);
+
+    if ($identifier <= 268){
+      $row->gisKeywordRef = 'Ipswich Watershed';
+      if ($identifier <= 254){
+        $row->sectionKeywordRef = 'Elevation and Bathymetry';
+      }elseif ($identifer <=261 ){
+        $row->sectionKeywordRef = 'Land Use';
+      }elseif ($identifer <= 262 ){
+        $row->sectionKeywordRef = 'Elevation and Bathymetry';
+      }elseif ($identifer <= 268){
+        $row->sectionKeywordRef = 'Boundaries';
+      }
+    } elseif ( $identifier <= 285){
+      $row->gisKeywordRef = 'Ipswich and Parker Watershed';
+      if ($identifier <= 280){
+        $row->sectionKeywordRef = 'Land Use';
+      } else {
+        $row->sectionKeywordRef = 'Boundaries';  
+      }
+    } elseif ( $identifier <= 290){
+      $row->gisKeywordRef = 'River Network';
+    } elseif ( $identifier <= 500){
+      $row->gisKeywordRef = 'Land Cover';
+      if ( $identifier <= 342){
+        $row->sectionKeywordRef = 'Towns';  
+      } elseif ( $identifier <= 477){
+        $row->sectionKeywordRef = 'Boundaries';  
+      } elseif ( $identifier <= 479){
+        $row->sectionKeywordRef = 'Land Use';  
+      } elseif ( $identifier <= 480){
+        $row->sectionKeywordRef = 'Zoning';  
+      } elseif ( $identifier <= 483){
+        $row->sectionKeywordRef = 'Census';  
+      } elseif ( $identifier <= 484){
+        $row->sectionKeywordRef = 'Parcels';  
+      }
+    }
 
     //dataset shortname
     if(!isset($row->xml->dataset->alternateIdentifier)){
@@ -252,17 +323,53 @@ class EmlDatasetMigration extends XMLMigration {
     $surnameid = $this->getPerson($row);
     $row->xml->dataset->creator->individualName->surName = $surnameid;
 
+    //  contact last name
+    $surnameid = $this->getContactPerson($row);
+    $row->xml->dataset->contact->individualName->surName = $surnameid;
+
     //  Datasource
     $row->dataRasterRef = $this->getDataSource($row);
-
-    // pi-assigned keywords in <keywordSet> construct
-    $row->customKeywordRef = $this->getKeywords($row);
 
     // EML Methods:
     $methods_values = '';
     foreach($row->xml->dataset->methods->methodStep->description->para as $parael){
        $methods_values .= (string)$parael. '<p/>';  
     }
+
+    if (isset($row->xml->dataset->spatialRaster)){
+      $gis = $row->xml->dataset->spatialRaster;
+    }else if(isset($row->xml->dataset->spatialVector)){
+      $gis = $row->xml->dataset->spatialVector;
+    }else{
+       $row->methods = $methods_values;
+       return;
+    }
+
+    // gis related metadata
+    $description = '<h3> Information relevant to the GIS data encoding </h3>';
+    $description .= (string) $gis->entityDescription;
+
+    $sr_horizsys = $gis->spatialReference->horizCoordSysDef->attributes();
+    $sr_horizsys_name = $sr_horizsys['name'];
+    $description .= 'Horizontal Coordinate System Name:' . $sr_horizsys_name . '<p/>';
+
+    $geog = $gis->spatialReference->horizCoordSysDef->projCoordSys->geogCoordSys;
+    $datum = $geog->datum->attributes();
+    $description .= 'Datum: ' . $datum['name'] . '<br/>';
+    $sphere = $geog->spheroid->attributes();
+    $description .= 'Reference Ellipsoid: Name: ' . $sphere['name'] . ' Semi Axis: ' . $sphere['semiAxisMajor'] . '<br/>'>
+    $prime_meridian = $geog->primeMeridian->attributes();
+    $description .= 'Meridian: ' . $prime_meridian['name'] . '<br/>';
+
+    $proj = $gis->spatialReference->horizCoordSysDef->projCoordSys->projection->attributes();
+    $description .= 'Projection Name : ' . $proj['name'] . '<br/>';
+    $description .= 'Number of bands : ' . $row->xml->numberOfBands . '<br/>';
+    $description .= 'Raster Origin : ' . $row->xml->rasterOrigin . '<br/>';
+    $description .=  'Rows : ' . $row->xml->rows . '<br/>';
+    $description .=  'Columns : ' . $row->xml->columns . '<br/>';
+    $description .= 'Cell Geometry :' . $row->xml->cellGeometry . '<br/>'; 
+    $methods_values .= $description;
+
     $row->methods = $methods_values;
   }
 
@@ -290,6 +397,21 @@ class EmlDatasetMigration extends XMLMigration {
     return $nid;
   }
 
+  public function getContactPerson($row) {
+
+    if (!empty($row->xml->dataset->contact->individualName->surName)) {
+      $query = new EntityFieldQuery();
+      $query->entityCondition('entity_type', 'node');
+      $query->entityCondition('bundle', 'person');
+      $query->propertyCondition('title', $row->xml->dataset->contact->individualName->surName, 'CONTAINS');
+      $results = $query->execute();
+      if (!empty($results['node'])) {
+        $nid = reset($results['node'])->nid;
+      }
+    }
+    return $nid;
+  }
+
   public function getDataSource($row) {
 
     $field_values = array();
@@ -307,7 +429,7 @@ class EmlDatasetMigration extends XMLMigration {
 
     foreach($row->xml->dataset->keywordSet->keyword as $xmlkeyword) {
       $keym = (string)$xmlkeyword;
-      $keys = $pieces = explode(" ", $keym);
+      $keys = explode(" ", $keym);
       foreach ($keys as $keywd) {
         if ($value = $this->handleSourceMigration('EmlKeywords', $keywd) ) {
           $field_values[] = $value;

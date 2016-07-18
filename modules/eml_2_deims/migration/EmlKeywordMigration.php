@@ -41,7 +41,7 @@ class EmlKeywordsMigration extends Migration {
       MigrateDestinationNode::getKeySchema()
     );
 
-    $this->destination = new MigrateDestinationTerm('station_keywords');
+    $this->destination = new MigrateDestinationTerm('gis_keywords');
 
     $this->addFieldMapping('name', 'keyword')
      ->description('Optionally, tweak in prepareRow');
