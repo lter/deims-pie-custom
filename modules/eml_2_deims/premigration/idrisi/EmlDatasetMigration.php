@@ -356,25 +356,44 @@ class EmlDatasetMigration extends XMLMigration {
     $description = '<h3> Information relevant to the GIS data encoding </h3>';
     $description .= (string) $gis->entityDescription;
 
-    $sr_horizsys = $gis->spatialReference->horizCoordSysDef->attributes();
-    $sr_horizsys_name = $sr_horizsys['name'];
-    $description .= 'Horizontal Coordinate System Name:' . $sr_horizsys_name . '<p/>';
+    if ( isset($gis->spatialReference->horizCoordSysDef) ){
+      $sr_horizsys = $gis->spatialReference->horizCoordSysDef->attributes();
+      $sr_horizsys_name = $sr_horizsys['name'];
+      $description .= 'Horizontal Coordinate System Name:' . $sr_horizsys_name . '<p/>';
+    }
 
-    $geog = $gis->spatialReference->horizCoordSysDef->projCoordSys->geogCoordSys;
-    $datum = $geog->datum->attributes();
-    $description .= 'Datum: ' . $datum['name'] . '<br/>';
-    $sphere = $geog->spheroid->attributes();
-    $description .= 'Reference Ellipsoid: Name: ' . $sphere['name'] . ' Semi Axis: ' . $sphere['semiAxisMajor'] . '<br/>'>
-    $prime_meridian = $geog->primeMeridian->attributes();
-    $description .= 'Meridian: ' . $prime_meridian['name'] . '<br/>';
-
+    if ( isset($gis->spatialReference->horizCoordSysDef->projCoordSys->geogCoordSys) ){
+      $geog = $gis->spatialReference->horizCoordSysDef->projCoordSys->geogCoordSys;
+      $datum = $geog->datum->attributes();
+      if (isset ($datum['name'])){
+       $description .= 'Datum: ' . $datum['name'] . '<br/>';
+      }
+      $sphere = $geog->spheroid->attributes();
+      if (isset ($sphere['name'])){
+        $description .= 'Reference Ellipsoid: Name: ' . $sphere['name'] . ' Semi Axis: ' . $sphere['semiAxisMajor'] . '<br/>';
+      }
+      $prime_meridian = $geog->primeMeridian->attributes();
+      if (isset ($prime_meridian['name'])){
+        $description .= 'Meridian: ' . $prime_meridian['name'] . '<br/>';
+      }
+    }
     $proj = $gis->spatialReference->horizCoordSysDef->projCoordSys->projection->attributes();
     $description .= 'Projection Name : ' . $proj['name'] . '<br/>';
-    $description .= 'Number of bands : ' . $row->xml->numberOfBands . '<br/>';
-    $description .= 'Raster Origin : ' . $row->xml->rasterOrigin . '<br/>';
-    $description .=  'Rows : ' . $row->xml->rows . '<br/>';
-    $description .=  'Columns : ' . $row->xml->columns . '<br/>';
-    $description .= 'Cell Geometry :' . $row->xml->cellGeometry . '<br/>'; 
+    if (isset ($gis->numberOfBands)){
+      $description .= 'Number of bands : ' . $gis->numberOfBands . '<br/>';
+    }
+    if (isset ($gis->rasterOrigin)){
+      $description .= 'Raster Origin : ' . $gis->rasterOrigin . '<br/>';
+    }
+    if (isset ($gis->rows)){
+      $description .=  'Rows : ' . $gis->rows . '<br/>';
+    }
+    if (isset ($gis->columns)){
+      $description .=  'Columns : ' . $gis->columns . '<br/>';
+    }
+    if (isset ($gis->cellGeometry)){
+      $description .= 'Cell Geometry :' . $gis->cellGeometry . '<br/>'; 
+    }
     $methods_values .= $description;
 
     $row->methods = $methods_values;
