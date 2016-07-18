@@ -123,6 +123,7 @@ class EmlDatasetMigration extends XMLMigration {
     $this->addFieldMapping('field_data_sources', 'dataRasterRef')
       ->description('In preparerow');
 
+    $this->addFieldMapping('field_methods:format')->defaultValue('full_html');
     $this->addFieldMapping('field_methods', 'methods')
         ->description('in prepareRow');
 
@@ -414,6 +415,8 @@ class EmlDatasetMigration extends XMLMigration {
       if (!empty($results['node'])) {
         $nid = reset($results['node'])->nid;
       }
+    } else {
+      $nid = 4382; // 4382 is the inform. mangr at dev
     }
     return $nid;
   }
