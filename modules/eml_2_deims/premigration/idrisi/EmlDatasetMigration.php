@@ -19,18 +19,19 @@ class EmlDatasetMigration extends XMLMigration {
         'title' => t('The dataset title'),
         'abstract' => t('The dataset abstract'),
         'methods' => t('The dataset methods'),
-        'additionalInfo' =>('The dataset additional information'),
-        'instrumentation' =>('The dataset instrumentation'),
-        'qualityControl' =>('The dataset quality assurance'),
-        'geoRef' => ('A geographical reference'),
-        'temporal' => ('The time when the data set was collected'),
-        'creatorRef' => ('A dataset pi or owner(s) reference'),
-        'contactRef' => ('A dataset contact reference'),
-        'metadataProviderRef' => ('A dataset metadata provider reference'),
-        'publisherRef' => ('A dataset publisher reference'),
+        'additionalInfo' => t('The dataset additional information'),
+        'instrumentation' => t('The dataset instrumentation'),
+        'qualityControl' => t('The dataset quality assurance'),
+        'geoRef' => t('A geographical reference'),
+        'temporal' => t('The time when the data set was collected'),
+        'creatorRef' => t('A dataset pi or owner(s) reference'),
+        'contactRef' => t('A dataset contact reference'),
+        'metadataProviderRef' => t('A dataset metadata provider reference'),
+        'publisherRef' => t('A dataset publisher reference'),
         'pubdate' => t('The dataset publication date'),
         'beginDate' => t('The dataset start date'),
-        'endDate' => t ('The last date of the dataset record'),
+        'endDate' => t('The last date of the dataset record'),
+        'locationsitenid' => t('The nid for the location site'),
         'language' => t('The dataset language'),
    //    'associatedparties' => t('The dataset associated roles'),
         'customKeywordRef' => t('The pie XML assigned keywords tagging this dataset to GIS Keyw'),
@@ -125,8 +126,6 @@ class EmlDatasetMigration extends XMLMigration {
     $this->addFieldMapping('field_methods', 'methods')
         ->description('in prepareRow');
 
-    $this->addFieldMapping('field_methods:format')->defaultValue('full_html');
-
       //@todo another text type for parsing
     $this->addFieldMapping('field_instrumentation', 'instrumentation')
         ->xpath('dataset/methods/methodStep/instrumentation');
@@ -162,6 +161,9 @@ class EmlDatasetMigration extends XMLMigration {
         ->defaultValue(3413);
 
     $this->addFieldMapping('uid')->defaultValue(1);
+
+    $this->addFieldMapping('field_related_sites','locationsitenid')
+      ->description('in preparerow()');
 
 //    $this->addUnmigratedSources(array(
 //      'associatedparties', // Handled in prepare()
@@ -251,6 +253,7 @@ class EmlDatasetMigration extends XMLMigration {
       }elseif ($identifer <= 268){
         $row->sectionKeywordRef = 'Boundaries';
       }
+      $row->locationsitenid = 5559; // Ipswich watershed 
     } elseif ( $identifier <= 285){
       $row->gisKeywordRef = 'Ipswich and Parker Watershed';
       if ($identifier <= 280){
@@ -258,10 +261,13 @@ class EmlDatasetMigration extends XMLMigration {
       } else {
         $row->sectionKeywordRef = 'Boundaries';  
       }
+      $row->locationsitenid = 5558; // The whole PIE 
     } elseif ( $identifier <= 290){
       $row->gisKeywordRef = 'River Network';
+      $row->locationsitenid = 5560; // Ipswich and Parker watersheds 
     } elseif ( $identifier <= 500){
       $row->gisKeywordRef = 'Land Cover';
+      $row->locationsitenid = 5558; // Whole PIE
       if ( $identifier <= 342){
         $row->sectionKeywordRef = 'Towns';  
       } elseif ( $identifier <= 477){
