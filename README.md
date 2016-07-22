@@ -7,7 +7,7 @@ Migration and customization for the Plum Island Ecosystems LTER
 
 ###Clone
 
-git clone --branch 7.x-1.x git@github.com:lter/deims-mcm-custom.git
+git clone --branch 7.x-1.x git@github.com:lter/deims-pie-custom.git
 
 into a place of your choice (current directory, Desktop, etc)
 
