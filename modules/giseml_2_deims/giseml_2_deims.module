@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Yes, there is [almost] no code in the .module file. Migrate operates almost 
+ * entirely thru classes. By adding any files containing class definitions to d
+ * .info file, those files are automatically included only when the classes they
+ * contain are referenced. The one non-class piece you need to implement is
+ * hook_migrate_api(), but because .migrate.inc is registered using
+ * hook_hook_info, by defining your implementation of that hook in
+ * example.migrate.inc, it is automatically invoked only when needed.
+ */
+
+define('GIS_EML_MIGRATION_GROUP', 'Eml_210');
+
+/**
+ * Implements hook_hook_info().
+ * Defines a group for the module.  Returns an
+ * array whose keys are the hook names and the
+ * values are the group to which the hook belong
+ */
+function giseml_2_deims_hook_info() {
+  $info['giseml_2_deims_migration_overrides'] = array('group' => 'migrate');
+  return $info;
+}
+
+/**
+ * Implements hook_form_alter() for migrate_migration_info().
+ */
+function giseml_2_deims_form_migrate_migration_info_alter(&$form, &$form_state) {
+  // Display the actual class used for the migration.
+  $migration_name = $form_state['build_info']['args'][1];
+  $migration = Migration::getInstance($migration_name);
+  $form['overview']['class_name'] = array(
+    '#type' => 'item',
+    '#title' => t('Migration class name:'),
+    '#markup' => get_class($migration),
+  );
+  $form['overview']['description']['#access'] = !empty($form['overview']['description']['#markup']);
+}

@@ -1,0 +1,15 @@
+name = GIS EML to DEIMS Migration
+description = "Provides a base migration from Ecological Metadata Language 2.1.0 GIS metadata branches to DEIMS. Use esri2eml.xsl crosswalk to extend to ESRI xml"
+package = DEIMS Enhancements
+core = 7.x
+dependencies[] = migrate
+dependencies[] = migrate_ui
+dependencies[] = migrate_extras
+dependencies[] = taxonomy
+
+; Migration classes
+files[] = migration/GisEmlFileMigration.php
+files[] = migration/GisEmlDatasetMigration.php
+files[] = migration/GisEmlDataFileMigration.php
+files[] = migration/GisEmlKeywordMigration.php
+
