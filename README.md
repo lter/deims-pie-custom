@@ -28,6 +28,10 @@ Run the migrations from independent to dependent.  I.e; first users and taxonomi
 
 Notes on geo-migration: Ensure the field handler for geofield is disabled in the migrate->config page. also, the geofield widget will dictate which is the master col, so if your widget is BB, a 'lat/lon', will result in a POLYGON albeit miniscule, with a dot. This may be to your advantage (glacier stakes?) or detriment. Ensure you know what you want before migration.
 
+### Features 
+
+Customizations to fields, views, content types and layouts for PIE are captured in the features folder, and managed by the Drupal Contrib module named "Features"
+
 ### Other supporting notes 
 
 Assets, plans, and other supporting notes are in google docs, may post some of those here.
