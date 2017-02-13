@@ -30,7 +30,7 @@ Notes on geo-migration: Ensure the field handler for geofield is disabled in the
 
 ### Features 
 
-Customizations to fields, views, content types and layouts for PIE are captured in the features folder, and managed by the Drupal Contrib module named "Features"
+Customizations to fields, views, content types, themes and layouts for PIE are captured in the features folder, and managed by the Drupal Contrib module named "Features"
 
 ### Other supporting notes 
 
