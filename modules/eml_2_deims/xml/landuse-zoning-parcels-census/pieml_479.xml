@@ -1,0 +1,640 @@
+<?xml version="1.0"?>
+<eml:eml packageId="knb-lter-pie.479.1"
+  system="https://pasta.lternet.edu"
+  xmlns:eml="eml://ecoinformatics.org/eml-2.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.0 http://nis.lternet.edu/schemas/EML/eml-2.1.0/eml.xsd">
+  <access authSystem="https://pasta.lternet.edu/authentication"
+    order="allowFirst" scope="document"
+    system="https://pasta.lternet.edu"
+    xmlns:cit="eml://ecoinformatics.org/literature-2.1.0"
+    xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0"
+    xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+    xmlns:prot="eml://ecoinformatics.org/protocol-2.1.0"
+    xmlns:res="eml://ecoinformatics.org/resource-2.1.0"
+    xmlns:stmml="http://www.xml-cml.org/schema/stmml"
+    xmlns:sw="eml://ecoinformatics.org/software-2.1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <allow>
+      <principal>uid=PIE,o=lter,dc=ecoinformatics,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset id="" system="ESRI MetaID"
+    xmlns:cit="eml://ecoinformatics.org/literature-2.1.0"
+    xmlns:doc="eml://ecoinformatics.org/documentation-2.1.0"
+    xmlns:ds="eml://ecoinformatics.org/dataset-2.1.0"
+    xmlns:prot="eml://ecoinformatics.org/protocol-2.1.0"
+    xmlns:res="eml://ecoinformatics.org/resource-2.1.0"
+    xmlns:stmml="http://www.xml-cml.org/schema/stmml"
+    xmlns:sw="eml://ecoinformatics.org/software-2.1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <title>Land use, 2005, Ipswich Watershed, Parker Watershed, Plum Island Ecosystem, Massachusetts - vector</title>
+    <creator>
+      <individualName>
+        <surName>Philip John</surName>
+      </individualName>
+      <address>
+        <deliveryPoint>251 Causeway St, Suite 500</deliveryPoint>
+        <city>Boston</city>
+        <administrativeArea>MA</administrativeArea>
+        <postalCode>02114</postalCode>
+        <country>US</country>
+      </address>
+      <phone phonetype="voice">617-626-1185</phone>
+    </creator>
+    <metadataProvider>
+      <organizationName>Plum Island Ecosystems LTER Program</organizationName>
+      <address>
+        <deliveryPoint>The Ecosystems Center</deliveryPoint>
+        <deliveryPoint>Marine Biological Lab</deliveryPoint>
+        <deliveryPoint>7 MBL St</deliveryPoint>
+        <city>Woods Hole</city>
+        <administrativeArea>MA</administrativeArea>
+        <postalCode>02543</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(508) 289 7485</phone>
+      <electronicMailAddress>pie_im@mbl.edu</electronicMailAddress>
+      <onlineUrl>http://pie-lter.ecosystems.mbl.edu</onlineUrl>
+    </metadataProvider>
+    <pubDate>20090605</pubDate>
+    <abstract>
+      <para>This is a statewide, seamless digital dataset of land use / land cover for the State of Massachusetts derived using semi-automated methods and based on digital imagery captured in 2005 with 0.5 m pixel resolution. The project area encompasses the State of Massachusetts. The minimum mapping unit (MMU) for this dataset is 1 acre overall for the dataset. However, there are some exceptions: a MMU of 0.5 acre has been used for rural areas where there may be isolated residential, commercial, or industrial structures. In such cases, areas less than 1 acre and more than about 0.5 acre are mapped. In urban areas, the MMU is 1 acre. This implies that a water tower or a communication tower in the middle of a residential or commercial area may not be mapped out separately if it occupies less than 1 acre of land. In areas where assessor parcel data was available, Multi-family Residential, Commercial, and Industrial areas may be as small as 0.25 acre. The land use classification scheme used for these data is based on a coding schema used in previous land use datasets in Massachusetts with some modifications for the 2005 classification.</para>
+      <para>Note: Complete metadata is available within the downloaded zip file. This metadata can be viewed with ESRI ArcGIS software, and can be exported to FGDC and ISO metadata formats.</para>
+    </abstract>
+    <keywordSet>
+      <keyword keywordType="theme">Land Use</keyword>
+      <keyword keywordType="theme">GIS</keyword>
+      <keyword keywordType="theme">Disturbance</keyword>
+      <keyword keywordType="theme">Watersheds</keyword>
+      <keywordThesaurus>None</keywordThesaurus>
+    </keywordSet>
+    <keywordSet>
+      <keyword keywordType="place">PIE LTER</keyword>
+      <keyword keywordType="place">Plum Island Ecosystem</keyword>
+      <keyword keywordType="place">New England</keyword>
+      <keyword keywordType="place">Massachusetts</keyword>
+      <keyword keywordType="place">Ipswich River Watershed</keyword>
+      <keyword keywordType="place">Parker River Watershed</keyword>
+      <keywordThesaurus>None</keywordThesaurus>
+    </keywordSet>
+    <additionalInfo>
+      <section>
+        <title>Data presentation form</title>
+        <para>vector digital data</para>
+      </section>
+    </additionalInfo>
+    <intellectualRights>
+      <section>
+        <title>Use Constraints</title>
+        <para>General Data Use Agreement</para>
+        <para>Definitions:
+							“Data Set” – Digital data and its metadata derived from any research activity such as field observations, 
+							collections, laboratory analysis, experiments, or the post-processing of existing data and identified by a unique identifier issued by a recognized 
+							cataloging authority such as a site, university, agency, or other organization.</para>
+        <para>“Data User” - individual to whom access has been granted to this Data Set, 
+							including his or her immediate collaboration sphere, defined here as the institutions, partners, students and staff with whom the Data User collaborates, 
+							and with whom access must be granted, in order to fulfill the Data User's intended use of the Data Set.</para>
+        <para>“Data Set Creator” - individual or institution that produced the Data Set.</para>
+        <para>“Data Set Owner” – individual or institution that holds intellectual property rights to the dataset. Note that this may or may not 
+							be defined as a legal copyright. If no other party is designated in the metadata as Data Set Owner, it may be presumed that these rights are held by the 
+							Data Set Creator.</para>
+        <para>“Data Set Distributor” - individual or institution providing access to the Data Sets.</para>
+        <para>“Data Set Contact” - party designated in the accompanying metadata of the Data Set as the primary contact for the Data Set.</para>
+        <para>Conditions of Use: The re-use of scientific data has the potential to 
+							greatly increase communication, collaboration and synthesis within and among disciplines, and thus is fostered, supported and encouraged. 
+							Permission to use this dataset is granted to the Data User free of charge subject to the following terms:</para>
+        <para>1) Acceptable use. Use of the dataset will be restricted to academic, research, educational, government, recreational, or other not-for-profit 
+							professional purposes. The Data User is permitted to produce and distribute derived works from this dataset provided that they are released under the same license terms as those accompanying 
+							this Data Set. Any other uses for the Data Set or its derived products will require explicit permission from the dataset owner.</para>
+        <para>2 ) Redistribution. 
+							The data are provided for use by the Data User. The metadata and this license must accompany all copies made and be available to all users of this 
+							Data Set. The Data User will not redistribute the original Data Set beyond this collaboration sphere.</para>
+        <para>3 ) Citation. It is considered a matter of 
+							professional ethics to acknowledge the work of other scientists. Thus, the Data User will properly cite the Data Set in any publications or in the 
+							metadata of any derived data products that were produced using the Data Set. Citation should take the following general form: 
+							Creator, Year of Data Publication, Title of Dataset, Publisher, Dataset identifier.</para>
+        <para>For example:</para>
+        <para>Giblin, A. 1993. Rates of benthic metabolism and nutrient cycling in the Parker and Rowley Rivers of the Plum Island Sound estuary. 
+							Plum Island Ecosystems LTER, The Ecosystems Center, Marine Biological Laboratory, Woods Hole, MA 02543.
+							http://ecosystems.mbl.edu/pie/data/ben/BEN-PR-Flux.html ben-pr-flux</para>
+        <para>4 ) Acknowledgement. The Data User should 
+							acknowledge any institutional support or specific funding awards referenced in the metadata accompanying this dataset in any publications where the 
+							Data Set contributed significantly to its content. Acknowledgements should identify the supporting party, the party that received the support, and any 
+							identifying information such as grant numbers. For example:Data sets were provided by the Plum Island Ecosystems LTER. This material is based upon work 
+							supported by the National Science Foundation under Grants #OCE-9726921, OCE-0423565, OCE-1058747, OCE-1238212.</para>
+        <para>5 ) Notification. The Data User will notify 
+							the Data Set Contact when any derivative work or publication based on or derived from the Data Set is distributed. The Data User will provide the data 
+							contact with two reprints of any publications resulting from use of the Data Set and will provide copies, or on-line access to, any derived digital 
+							products. Notification will include an explanation of how the Data Set was used to produce the derived work.</para>
+        <para>6 ) Collaboration. The Data Set has been 
+							released in the spirit of open scientific collaboration. Data Users are thus strongly encouraged to consider consultation, collaboration and/or 
+							co-authorship with the Data Set Creator.</para>
+        <para>By accepting this Data Set, the Data User agrees to abide by the terms of this agreement. The Data Owner shall 
+							have the right to terminate this agreement immediately by written notice upon the Data User's breach of, or non-compliance with, any of its terms. 
+							The Data User may be held responsible for any misuse that is caused or encouraged by the Data User's failure to abide by the terms of this agreement.</para>
+        <para>Disclaimer: While substantial efforts are made to ensure the accuracy of data and documentation contained in this Data Set, complete accuracy of data 
+							and metadata cannot be guaranteed. All data and metadata are made available "as is". The Data User holds all parties involved in the production or 
+							distribution of the Data Set harmless for damages resulting from its use or interpretation.</para>
+      </section>
+    </intellectualRights>
+    <distribution>
+      <online>
+        <url function="information">http://pie-lter.ecosystems.mbl.edu/content/PIE_landuse_2005_vector_v2</url>
+      </online>
+    </distribution>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Plum Island Ecosystems, Massachusetts, USA.</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-71.333382</westBoundingCoordinate>
+          <eastBoundingCoordinate>-70.723978</eastBoundingCoordinate>
+          <northBoundingCoordinate>42.841492</northBoundingCoordinate>
+          <southBoundingCoordinate>42.447666</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <singleDateTime>
+          <calendarDate>2005-04-01</calendarDate>
+        </singleDateTime>
+      </temporalCoverage>
+    </coverage>
+    <purpose>
+      <para>To provide a statewide dataset representing land use for use by MassGIS and its stakeholders.  The dataset is also intended to be incorporated into the MassGIS data holdings and distributed for use based on data policies at MassGIS.</para>
+    </purpose>
+    <maintenance>
+      <description>
+        <section>
+          <title>Progress</title>
+          <para>Complete</para>
+        </section>
+        <section>
+          <title>Update</title>
+          <para>As needed</para>
+        </section>
+      </description>
+      <maintenanceUpdateFrequency>otherMaintenancePeriod</maintenanceUpdateFrequency>
+    </maintenance>
+    <contact>
+      <positionName>Information Manager</positionName>
+      <organizationName>LTER Network Office</organizationName>
+      <address>
+        <deliveryPoint>UNM Biology Department, MSC03-2020</deliveryPoint>
+        <deliveryPoint>1 University of New Mexico</deliveryPoint>
+        <city>Albuquerque</city>
+        <administrativeArea>NM</administrativeArea>
+        <postalCode>87131-0001</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">505 277-2535</phone>
+      <phone phonetype="fax">505 277-2541</phone>
+      <electronicMailAddress>tech-support@lternet.edu</electronicMailAddress>
+      <onlineUrl>http://www.lternet.edu</onlineUrl>
+    </contact>
+    <contact>
+      <individualName>
+        <surName>Philip John</surName>
+      </individualName>
+      <organizationName>MassGIS</organizationName>
+      <address>
+        <deliveryPoint>251 Causeway St, Suite 500</deliveryPoint>
+        <city>Boston</city>
+        <administrativeArea>MA</administrativeArea>
+        <postalCode>02114</postalCode>
+        <country>US</country>
+      </address>
+      <phone phonetype="voice">617-626-1185</phone>
+    </contact>
+    <publisher>
+      <organizationName>Plum Island Ecosystems LTER</organizationName>
+      <address>
+        <deliveryPoint>The Ecosystems Center</deliveryPoint>
+        <deliveryPoint>Marine Biological Lab</deliveryPoint>
+        <deliveryPoint>7 MBL St</deliveryPoint>
+        <city>Woods Hole</city>
+        <administrativeArea>MA</administrativeArea>
+        <postalCode>02543</postalCode>
+        <country>USA</country>
+      </address>
+      <phone phonetype="voice">(508) 289 7485</phone>
+      <electronicMailAddress>pie_im@mbl.edu</electronicMailAddress>
+      <onlineUrl>http://pie-lter.ecosystems.mbl.edu</onlineUrl>
+    </publisher>
+    <project>
+      <title>Plum Island Ecosystems Long-Term Ecological Research (PIE LTER) Program</title>
+      <personnel>
+        <individualName>
+          <givenName>Anne</givenName>
+          <surName>Giblin</surName>
+        </individualName>
+        <address>
+          <deliveryPoint>The Ecosystems Center</deliveryPoint>
+          <deliveryPoint>Marine Biological Lab</deliveryPoint>
+          <deliveryPoint>7 MBL St</deliveryPoint>
+          <city>Woods Hole</city>
+          <administrativeArea>MA</administrativeArea>
+          <postalCode>02543</postalCode>
+          <country>USA</country>
+        </address>
+        <phone phonetype="voice">(508) 289 7488</phone>
+        <electronicMailAddress>agiblin@mbl.edu</electronicMailAddress>
+        <role>Lead PI</role>
+      </personnel>
+      <personnel>
+        <individualName>
+          <givenName>Hap</givenName>
+          <surName>Garritt</surName>
+        </individualName>
+        <address>
+          <deliveryPoint>The Ecosystems Center</deliveryPoint>
+          <deliveryPoint>Marine Biological Lab</deliveryPoint>
+          <deliveryPoint>7 MBL St</deliveryPoint>
+          <city>Woods Hole</city>
+          <administrativeArea>MA</administrativeArea>
+          <postalCode>02543</postalCode>
+          <country>USA</country>
+        </address>
+        <phone phonetype="voice">(508) 289 7485</phone>
+        <electronicMailAddress>pie_im@mbl.edu</electronicMailAddress>
+        <role>Information Manager</role>
+      </personnel>
+      <abstract>
+        <para>The Plum Island Ecosystems (PIE) LTER is an integrated research, education and outreach program whose goal is to develop a predictive 
+							understanding of the long-term response of watershed and estuarine ecosystems at the land-sea interface to changes in climate, land use 
+							and sea level. The principal study site is the Plum Island Sound estuary, its coupled Parker, Rowley and Ipswich River watersheds and the 
+							adjacent coastal ocean, the Gulf of Maine. The PIE LTER focuses on how several aspects of global change influence organic matter and inorganic 
+							nutrient biogeochemistry and estuarine foodwebs. The inputs of organic matter and nutrients from land, ocean and marshes interact with the external 
+							drivers (climate, land use, river discharge, sea level) to dictate the extent and degree of nutrient and organic matter processing and determine the 
+							spatial patterns of estuarine productivity and trophic structure.</para>
+      </abstract>
+      <funding>
+        <para>This material is based upon work supported by the National Science Foundation under Grants OCE-9726921, OCE-0423565, OCE-1058747, and OCE-1238212. Any opinions, findings, conclusions, or recommendations expressed in the material are those of the author\(s\) and do not necessarily reflect the views of the National Science Foundation.</para>
+      </funding>
+      <studyAreaDescription>
+        <coverage>
+          <geographicCoverage>
+            <geographicDescription>The Plum Island Ecosystems (PIE) LTER site, is located in northeastern Massachusetts, 42.72 N, 70.85 W. The PIE LTER lies at the interface of a thinly soiled, 
+									formerly glaciated New England land mass and the highly productive Gulf of Maine. Three watersheds comprise the estuarine drainage basin: Parker (155 km2), Rowley (26 km2) and Ipswich 
+									(404 km2). The Ipswich River watershed is highly urbanized with Boston "bedroom" communities encroaching in the headwater region while the Parker is less urbanized and retains a 
+									higher proportion of forest.</geographicDescription>
+            <boundingCoordinates>
+              <westBoundingCoordinate>-71.2198</westBoundingCoordinate>
+              <eastBoundingCoordinate>-70.7568</eastBoundingCoordinate>
+              <northBoundingCoordinate>42.8276</northBoundingCoordinate>
+              <southBoundingCoordinate>42.4965</southBoundingCoordinate>
+              <boundingAltitudes>
+                <altitudeMinimum>0</altitudeMinimum>
+                <altitudeMaximum>100</altitudeMaximum>
+                <altitudeUnits>meter</altitudeUnits>
+              </boundingAltitudes>
+            </boundingCoordinates>
+          </geographicCoverage>
+        </coverage>
+      </studyAreaDescription>
+    </project>
+    <spatialVector>
+      <entityName>PIE_landuse_2005_vector_v2</entityName>
+      <entityDescription>This is a statewide, seamless digital dataset of land use / land cover for the State of Massachusetts derived using semi-automated methods and based on digital imagery captured in 2005 with 0.5 m pixel resolution. The project area encompasses the State of Massachusetts. The minimum mapping unit (MMU) for this dataset is 1 acre overall for the dataset. However, there are some exceptions: a MMU of 0.5 acre has been used for rural areas where there may be isolated residential, commercial, or industrial structures. In such cases, areas less than 1 acre and more than about 0.5 acre are mapped. In urban areas, the MMU is 1 acre. This implies that a water tower or a communication tower in the middle of a residential or commercial area may not be mapped out separately if it occupies less than 1 acre of land. In areas where assessor parcel data was available, Multi-family Residential, Commercial, and Industrial areas may be as small as 0.25 acre. The land use classification scheme used for these data is based on a coding schema used in previous land use datasets in Massachusetts with some modifications for the 2005 classification.</entityDescription>
+      <physical>
+        <objectName>PIE_landuse_2005_vector_v2.zip</objectName>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>zip</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+        <distribution>
+          <online>
+            <url>https://pasta.lternet.edu/package/data/eml/knb-lter-pie/479/1/d8b7f0c7fcd7f3b095507e2f16daae35</url>
+          </online>
+        </distribution>
+      </physical>
+      <methods>
+        <methodStep>
+          <description>
+            <para>Buffer Labeled Impervious Data: An initial buffering of the impervious data produced the preliminary boundaries of the land uses for urban classes. Before buffering, small (&lt; 20 m2) free-standing impervious clumps were erased. Most of these were identified as small isolated structures such as sheds, etc. Depending on the land use label assigned to the clumps, various buffer distances and priority rules were applied. Create Pervious Classification: The non-impervious (pervious) uses were classified separately through image segmentation using Definiens® software. The segmented classification was filtered to generalize / smooth the class boundaries, and features smaller than about 1 acre were dissolved into surrounding features. Label Pervious Data: Where logical combinations of segment labels and 1999 land use labels occurred, the segment was labeled with the 1999 class which contained the largest portion of the segment (using a zonal majority rule). When the combination was illogical, the pervious data were flagged and then corrected in a manual review. Secondary Buffer: The buffered and labeled impervious and labeled pervious data were combined through a second buffer using ESRI's ArcGIS®. This buffer incorporated natural classes into urban class delineations, e.g. lawns (pervious segment) into residential (buffered and labeled impervious). It allowed impervious features of certain classes to grow into pervious areas of specific classes. This buffer was allowed to grow a specified distance beyond the edge of the first buffer. The buffer distance and class hierarchy were specified in an automated model. Note: A significant result of the semi-automated method of production is that low and very low density residential areas are mapped so that the "useable area" (the residence and landscaped area immediately around it) is depicted. For example, a neighborhood of houses on relatively large wooded lots will be shown as polygons around the developed portions of the properties embedded in a matrix of Forest. Adding Wetlands: Wetlands from the DEP Wetlands datalayer were added to the land use classification, replacing any underlying interpreted polygons. The wetlannds polygons were not modified in any way, and the coastline was based on this dataset. No interpretation of wetlands was done except for cranberry bogs. Clean Data / Post-production: A series of filters was applied to smooth the polygon boundaries, and to maintain a minimum mapping area. (Isolated polygons with developed uses in rural areas were kept, even though the area may have been less than the 1 acre MMU.) A final manual quality control (QC) review of the data was performed by Sanborn, and polygons that did not delineate appropriately through the automated method were corrected in terms of geometry and labeling. During this phase of production, MassGIS provided input based on local knowledge and onsite field verification. Two areas were specifically addressed post production: the under-representation of multi-family housing in areas where there were no parcel data, and the residential class densities. Multi-family housing was delineated through the use of an assessment dataset geocoded to NAVTEQ road centerlines (Warren Group points), and identified manually in areas where there were significant concentrations of these points. MassGIS QA: Upon receipt of the data, MassGIS performed extensive QA steps. These included comparing the draft land use with numerous ancillary datasets, manual photo interpretation, and field visits. Draft data was graciously reviewed by several Regional Planning Agencies across the state. MassGIS carried out an additional post production step to further improve the mapping of residential, commercial, and industrial land use. In municipalities where assessors' parcels were available, the developed portions of residential, commercial, or industrial parcels with use codes that unambiguously corresponded to single land use codes were incorporated into the land use data. Additionally, in order to make the statewide dataset more manageable, polygons were simplified and slivers were removed. During QA, MassGIS combined the data into a single statewide layer, and then split it into more manageable County-sized pieces for distribution. For more efficient display and spatial indexing, the final statewide version includes the county boundaries. County boundaries are based on the Towns from Survey Points layer. 
+</para>
+          </description>
+        </methodStep>
+      </methods>
+      <attributeList>
+        <attribute id="FID">
+          <attributeName>FID</attributeName>
+          <attributeDefinition>Internal feature number.</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Sequential unique whole numbers that are automatically generated.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="Shape">
+          <attributeName>Shape</attributeName>
+          <attributeDefinition>Feature geometry.</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Coordinates defining the features.</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="AREA">
+          <attributeName>AREA</attributeName>
+          <attributeDefinition>Polygon area</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>No further information about this attribute was provided</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="PERIMETER">
+          <attributeName>PERIMETER</attributeName>
+          <attributeDefinition>Polygon perimeter</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>No further information about this attribute was provided</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="LU05_DESC">
+          <attributeName>LU05_DESC</attributeName>
+          <attributeDefinition>Land Use Description</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>No further information about this attribute was provided</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute id="LUCODE">
+          <attributeName>LUCODE</attributeName>
+          <attributeDefinition>Land Use Code for 2005</attributeDefinition>
+          <storageType typeSystem="http://www.esri.com/metadata/esriprof80.html"/>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>1</code>
+                    <definition>Cropland</definition>
+                    <source>Generally tilled land used to grow row crops. Boundaries follow the shape of the fields and include associated buildings (e.g., barns). This category also includes turf farms that grow sod.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>2</code>
+                    <definition>Pasture</definition>
+                    <source>Fields and associated facilities (barns and other outbuildings) used for animal grazing and for the growing of grasses for hay.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>3</code>
+                    <definition>Forest</definition>
+                    <source>Areas where tree canopy covers at least 50% of the land. Both coniferous and deciduous forests belong to this class.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>4</code>
+                    <definition>Non-Forested Wetland</definition>
+                    <source>These areas include seasonally flooded basins or flats, bogs, shrub swamps, wet meadows, shallow marshes, deep marshes, or small beaver ponds. DEP Wetlands (1:12,000) WETCODEs 4, 7, 8, 12, 23, 18, 20, and 21.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>5</code>
+                    <definition>Mining</definition>
+                    <source>Includes sand and gravel pits, mines and quarries. The boundaries extend to the edges of the site's activities, including on-site machinery, parking lots, roads and buildings.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>6</code>
+                    <definition>Open Land</definition>
+                    <source>Vacant land, idle agriculture, rock outcrops, and barren areas. Vacant land is not maintained for any evident purpose and it does not support large plant growth.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>7</code>
+                    <definition>Participation Recreation</definition>
+                    <source>Facilities used by the public for active recreation. Includes ball fields, tennis courts, basketball courts, athletic tracks, ski areas, playgrounds, and bike paths plus associated parking lots. Primary and secondary school recreational facilities are in this category, but university stadiums and arenas are considered Spectator Recreation. Recreation facilities not open to the public such as those belonging to private residences are mostly labeled with the associated residential land use class not participation recreation. However, some private facilities may also be mapped.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>8</code>
+                    <definition>Spectator Recreation</definition>
+                    <source>University and professional stadiums designed for spectators as well as zoos, amusement parks, drive-in theaters, fairgrounds, race tracks and associated facilities and parking lots.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>9</code>
+                    <definition>Water-Based Recreation</definition>
+                    <source>Swimming pools, water parks, developed freshwater and saltwater sandy beach areas and associated parking lots. Also included are scenic areas overlooking lakes or other water bodies, which may or may not include access to the water (such as a boat launch). Water-based recreation facilities related to universities are in this class. Private pools owned by individual residences are usually included in the Residential category. Marinas are separated into code 29.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>10</code>
+                    <definition>Multi-Family Residential</definition>
+                    <source>Duplexes (usually with two front doors, two entrance pathways, and sometimes two driveways), apartment buildings, condominium complexes, including buildings and maintained lawns. Note: This category was difficult to assess via photo interpretation, particularly in highly urban areas.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>11</code>
+                    <definition>High Density Residential</definition>
+                    <source>Housing on smaller than 1/4 acre lots.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>12</code>
+                    <definition>Medium Density Residential</definition>
+                    <source>Housing on 1/4 - 1/2 acre lots.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>13</code>
+                    <definition>Low Density Residential</definition>
+                    <source>Housing on 1/2 - 1 acre lots
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>14</code>
+                    <definition>Saltwater Wetland</definition>
+                    <source>These wet areas include all tidal salt marshes (generally flooded twice daily), irregularly flooded salt meadows, or ditched salt meadows. DEP Wetlands (1:12,000) WETCODEs 11 and 27.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>15</code>
+                    <definition>Commercial</definition>
+                    <source>Malls, shopping centers and larger strip commercial areas, plus neighborhood stores and medical offices (not hospitals). Lawn and garden centers that do not produce or grow the product are also considered commercial.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>16</code>
+                    <definition>Industrial</definition>
+                    <source>Industrial lands (heavy) contain facilities for the manufacture, storage, and assembly of raw or partially processed products such as machinery, metals, chemicals, petroleum, or electric power often with smoke stacks and storage areas. Industrial lands (light) contain facilities for the manufacture or assembly of smaller, partially processed products such as electronics, appliances, and other secondary process products. Industrial areas are typically not landscaped as thoroughly as a commercial facility. Parking is often in one large lot. These areas generally have many loading docks and truck trailers are often parked on-site. These facilities are usually far from residential areas, often surrounded by forests, but typically near major roads or highways. Parking areas are included. Industrial buildings are almost always larger than residential structures.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>17</code>
+                    <definition>Transitional</definition>
+                    <source>Open areas in the process of being developed from one land use to another (if the future land use is at all uncertain). Formerly identified as "Urban Open".
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>18</code>
+                    <definition>Transportation</definition>
+                    <source>Airports (including landing strips, hangars, parking areas and related facilities), railroads and rail stations, and divided highways (related facilities would include rest areas, highway maintenance areas, storage areas, and on/off ramps). Also includes docks, warehouses, and related land-based storage facilities, and terminal freight and storage facilities. Roads and bridges less than 200 feet in width that are the center of two differing land use classes will have the land use classes meet at the center line of the road (i.e., these roads/bridges themselves will not be separated into this class).
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>19</code>
+                    <definition>Waste Disposal</definition>
+                    <source>Landfills, dumps, and water and sewage treatment facilities such as pump houses, and associated parking lots. Capped landfills that have been converted to other uses are coded with their present land use.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>20</code>
+                    <definition>Water</definition>
+                    <source>This category includes open water, such as lakes, ponds, lagoons, bays or rivers wide enough to be mapped as a polygon instead of a line. This includes any open water feature on the land side of the ocean coastline. Retention basins are included in this category if they have standing water in them. DEP Wetlands (1:12,000) WETCODEs 9 and 22.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>23</code>
+                    <definition>Cranberry Bog</definition>
+                    <source>Both active and recently inactive cranberry bogs and the sandy areas adjacent to the bogs that are used in the growing process. Impervious features associated with cranberry bogs such as parking lots and machinery are included. Modified from DEP Wetlands (1:12,000) WETCODE 5.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>24</code>
+                    <definition>Power Line/Utility</definition>
+                    <source>Powerline and other maintained public utility corridors and associated facilities, including power plants and their parking areas.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>25</code>
+                    <definition>Saltwater Sandy Beach</definition>
+                    <source>This category includes saltwater sandy beaches, tidal flats, rocky intertidal areas, dunes, banks and cliffs along the shore. DEP Wetlands (1:12,000) WETCODEs 1, 2, 3, 6, 10, 13, 17 and 19.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>26</code>
+                    <definition>Golf Course</definition>
+                    <source>Includes the greenways, sand traps, water bodies within the course, associated buildings and parking lots. Large forest patches within the course greater than 1 acre are classified as Forest (class 3). Does not include driving ranges or miniature golf courses.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>29</code>
+                    <definition>Marina</definition>
+                    <source>This category describes marinas plus associated parking lots and facilities, but not docks (in class 18).
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>31</code>
+                    <definition>Urban Public / Institutional</definition>
+                    <source>Lands comprising schools, churches, colleges, hospitals, museums, prisons, town halls or court houses, police and fire stations, including parking lots, dormitories, and university housing. Also may include public open green spaces like town commons.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>34</code>
+                    <definition>Cemetery</definition>
+                    <source>From small to large cemeteries, these features are obvious by the orderly grid of gravestones, monuments and road networks. Quite often, they are noted on USGS topographic maps. This category includes associated buildings, roads and parking areas.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>35</code>
+                    <definition>Orchard</definition>
+                    <source>Fruit farms and associated facilities.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>36</code>
+                    <definition>Nursery</definition>
+                    <source>Greenhouses and associated buildings as well as any surrounding maintained lawn. Christmas tree (small conifer) farms are also classified as Nurseries.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>37</code>
+                    <definition>Forested Wetland</definition>
+                    <source>This category includes all forested wetlands such as wooded deciduous, coniferous and mixed forest swamps. DEP Wetlands (1:12,000) WETCODEs 14, 15, 16, 24, 25 and 26.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>38</code>
+                    <definition>Very Low Density Residential</definition>
+                    <source>Housing on &gt; 1 acre lots and very remote, rural housing.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>39</code>
+                    <definition>Junkyard</definition>
+                    <source>Junkyards are sites where the irregular or haphazard storage of a dozen or more cars is the predominant use. There may also be car parts, scrap appliances and other piles of scrap metal. The absence of regular pavement markings and parking lanes would distinguish a junkyard from a parking lot. Unlike some residential yards, which may contain exposed car and machine parts, junkyards are much larger and are sometimes loosely organized. Associated facilities will include buildings and machinery such as cranes, lifts and crushers.
+</source>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>40</code>
+                    <definition>Brushland/Successional</definition>
+                    <source>Predominantly (&gt; 25%) shrub cover, and some immature trees not large or dense enough to be classified as forest. It also includes areas that are more permanently shrubby, such as heath areas, wild blueberries or mountain laurel.
+
+
+</source>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <geometry>Polygon</geometry>
+      <geometricObjectCount>49733</geometricObjectCount>
+      <spatialReference>
+        <horizCoordSysDef name="NAD 1983 StatePlane Massachusetts Mainland FIPS 2001">
+          <projCoordSys>
+            <geogCoordSys>
+              <datum name="D North American 1983"/>
+              <spheroid denomFlatRatio="298.257222101" name="GRS 1980" semiAxisMajor="6378137.0"/>
+              <primeMeridian longitude="0.0" name=" Greenwich"/>
+              <unit name="degree"/>
+            </geogCoordSys>
+            <projection name="Lambert Conformal Conic">
+              <parameter
+                description="Line of constant latitude at which the Earth and the plane intersect"
+                name="Standard Parallel" value="42.68333333333333"/>
+              <parameter
+                description="The line of logitude at the center of the map projection"
+                name="Longitude at central meridian" value="-71.5"/>
+              <parameter
+                description="The latitude chosen as center of the projection"
+                name="Latitude of projection origin" value="41.0"/>
+              <parameter
+                description="A value added in a rectangular coordinate system, usually used to avoid negative values"
+                name="False Easting" value="200000.0"/>
+              <parameter
+                description="A value added in a rectangular coordinate system, usually used to avoid negative values"
+                name="False Northing" value="750000.0"/>
+              <unit name="meter"/>
+            </projection>
+          </projCoordSys>
+        </horizCoordSysDef>
+      </spatialReference>
+    </spatialVector>
+  </dataset>
+</eml:eml>
